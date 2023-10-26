@@ -23,8 +23,8 @@ class Array
 		}
 		Array(const Array& rhs)
 		{
-			this->myArr = new Array[rhs._len];
-			for (int i = 0; i < rhs._len; i++)
+			this->myArr = new T[rhs._len];
+			for (unsigned int i = 0; i < rhs._len; i++)
 			{
 				this->myArr[i] = rhs.myArr[i];
 			}
@@ -33,8 +33,8 @@ class Array
 		{
 			if (this == &rhs)
 				return *this;
-			this->myArr = new Array[rhs.len];
-			for (int i = 0; i < rhs.len; i++)
+			this->myArr = new T[rhs._len];
+			for (unsigned int i = 0; i < rhs._len; i++)
 			{
 				this->myArr[i] = rhs.myArr[i];
 			}
