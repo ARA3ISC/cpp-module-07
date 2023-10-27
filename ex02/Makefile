@@ -1,6 +1,6 @@
 NAME = template
 CXX = c++
-CXXFLAGS = -Wextra -Werror -Wall -std=c++98
+CXXFLAGS = -Wextra -Werror -Wall -std=c++98 #-fsanitize=address
 RM = rm -f
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)

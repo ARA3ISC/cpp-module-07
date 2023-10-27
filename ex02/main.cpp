@@ -30,7 +30,6 @@ int main()
 		{
 			std::cout << newarr[i] << " | ";
 		}
-
 		// ? string test
 		// Array<std::string> arr(3);
 
