@@ -19,15 +19,12 @@ class Array
 		Array(unsigned int n)
 		{
 			this->_len = n;
-			this->myArr = new T[n];
+			this->myArr = new T[n]();
 		}
 		Array(const Array& rhs)
 		{
 			this->myArr = new T[rhs._len];
-			for (unsigned int i = 0; i < rhs._len; i++)
-			{
-				this->myArr[i] = rhs.myArr[i];
-			}
+			*(this->myArr) = *(rhs.myArr);
 		}
 		Array& operator=(const Array& rhs)
 		{
@@ -37,10 +34,7 @@ class Array
 			delete[] this->myArr;
 			this->myArr = new T[rhs._len];
 
-			for (unsigned int i = 0; i < rhs._len; i++)
-			{
-				this->myArr[i] = rhs.myArr[i];
-			}
+			*(this->myArr) = *(rhs.myArr);
 			return *this;
 		}
 		unsigned int size() const
