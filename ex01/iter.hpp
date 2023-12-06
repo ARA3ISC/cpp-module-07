@@ -4,17 +4,17 @@
 # include <iostream>
 
 template <typename U>
-void func(U element)
+void func(U &element)
 {
-	(*element)++;
+	std::cout << element << std::endl;
 }
 
-template <typename T>
-void iter(T arr, int len, void (*func)(T))
+template <typename T, typename U>
+void iter(T arr, int len, void (*func)(U))
 {
 	for (int i = 0; i < len; i++)
 	{
-		func(&arr[i]);
+		func(arr[i]);
 	}
 }
 

@@ -12,38 +12,34 @@
 
 #include "iter.hpp"
 
-int main()
+class Awesome
 {
-	// ? char test
-	char arr[5] = {'a', 'b', 'c', 'd', 'e'};
+  public:
+    Awesome( void ) : _n( 42 ) { return; }
+    int get( void ) const { return this->_n; }
+  private:
+    int _n;
+};
 
-	iter<char*>(arr, 5, func);
+std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
+{
+  o << rhs.get();
+  return o;
+}
 
-	for (int i = 0; i < 5; i++)
-	{
-		std::cout << arr[i] << "  ";
-	}
-	std::cout << std::endl;
+template< typename T >
+void print( T& x )
+{
+  std::cout << x << std::endl;
+  return;
+}
 
-	// ? double test
-	// double arr[5] = {1.5, 2.6, 3.7, 4.8, 5.9};
+int main() {
+  int tab[] = { 0, 1, 2, 3, 4 };
+  Awesome tab2[5];
 
-	// iter<double*>(arr, 5, func);
+  iter( tab, 5, print<const int> );
+  iter( tab2, 5, print<Awesome> );
 
-	// for (int i = 0; i < 5; i++)
-	// {
-	// 	std::cout << arr[i] << "  ";
-	// }
-	// std::cout << std::endl;
-
-	// ? int test
-	// int arr[5] = {1, 2, 3, 4, 5};
-
-	// iter<int*>(arr, 5, func);
-
-	// for (int i = 0; i < 5; i++)
-	// {
-	// 	std::cout << arr[i] << "  ";
-	// }
-	// std::cout << std::endl;
+  return 0;
 }

@@ -14,7 +14,7 @@ class Array
 		Array()
 		{
 			this->_len = 0;
-			this->myArr = new T[_len];
+			this->myArr = NULL;
 		}
 		Array(unsigned int n)
 		{
