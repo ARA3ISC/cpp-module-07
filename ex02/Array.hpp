@@ -3,7 +3,6 @@
 
 # include <iostream>
 
-
 template <typename T>
 class Array
 {
@@ -24,7 +23,10 @@ class Array
 		Array(const Array& rhs)
 		{
 			this->myArr = new T[rhs._len];
-			*(this->myArr) = *(rhs.myArr);
+			for (unsigned int i = 0; i < rhs._len; i++)
+			{
+				this->myArr[i] = rhs.myArr[i];
+			}
 		}
 		Array& operator=(const Array& rhs)
 		{
@@ -33,8 +35,10 @@ class Array
 
 			delete[] this->myArr;
 			this->myArr = new T[rhs._len];
-
-			*(this->myArr) = *(rhs.myArr);
+			for (unsigned int i = 0; i < rhs._len; i++)
+			{
+				this->myArr[i] = rhs.myArr[i];
+			}
 			return *this;
 		}
 		unsigned int size() const
